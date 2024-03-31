@@ -28,7 +28,7 @@ export const TaskCard: FC<Props> = (props) => {
   return (
     <div
       ref={drag}
-      className={`flex justify-center items-center rounded-2xl h-14 w-60 bg-white ${opacity}`}
+      className={`flex justify-center items-center rounded h-14 w-60 bg-white cursor-grab ${opacity}`}
     >
       <div>{name}</div>
     </div>

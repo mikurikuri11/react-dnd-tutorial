@@ -56,7 +56,7 @@ export const Column: FC<Props> = (props) => {
         bg="gray"
         justify="flex-start"
         align="center"
-        className={`p-4 rounded-lg ${isOver ? "bg-red-500" : ""}`}
+        className={`p-4 rounded-lg ${isOver ? "bg-gray-500" : ""}`}
       >
         {tasks
           .filter((task) => task.columnId === colNumber)
