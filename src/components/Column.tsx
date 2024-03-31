@@ -1,5 +1,4 @@
 import { FC, createContext } from "react";
-import { useState } from "react";
 
 import { Modal, Button, Stack } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -21,10 +20,12 @@ export type DropResult = {
 
 interface Props {
   colNumber: number;
+  tasks: Task[];
+  setTasks: (tasks: Task[]) => void;
 }
 
 export const Column: FC<Props> = (props) => {
-  const { colNumber } = props;
+  const { colNumber, tasks, setTasks } = props;
 
   const [{ isOver }, drop] = useDrop({
     accept: itemTypes.CARD,
@@ -35,13 +36,6 @@ export const Column: FC<Props> = (props) => {
   });
 
   const [opened, { open, close }] = useDisclosure(false);
-
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, content: "Task 1", columnId: 1 },
-    { id: 2, content: "Task 2", columnId: 2 },
-    { id: 3, content: "Task 3", columnId: 3 },
-    { id: 4, content: "Task 4", columnId: 4 },
-  ]);
 
   const markAsDone = (id: string) => {
     const draggedTask = tasks.filter((task) => task.id === id)[0];
