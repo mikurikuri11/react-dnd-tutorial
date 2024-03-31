@@ -5,3 +5,8 @@ export type Task = {
   columnId: Id;
   content: string;
 };
+
+export interface ITEM {
+  type: string;
+  ID: string;
+}
