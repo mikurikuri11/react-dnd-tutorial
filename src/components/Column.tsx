@@ -29,7 +29,9 @@ export const Column: FC<Props> = (props) => {
 
   const [{ isOver }, drop] = useDrop({
     accept: itemTypes.CARD,
-    drop: (item: ITEM) => markAsDone(item.ID),
+    drop: (item: ITEM) => {
+      markAsDone(item.ID);
+    },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
@@ -41,7 +43,6 @@ export const Column: FC<Props> = (props) => {
     const draggedTask = tasks.filter((task) => task.id === id)[0];
     draggedTask.columnId = colNumber;
     setTasks(tasks.filter((task) => task.id !== id).concat(draggedTask));
-    console.log("Task marked as done", tasks);
   };
 
   return (
